@@ -496,6 +496,17 @@
   .web-card .dur{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);margin-bottom:22px}
   .web-card .btn{width:100%}
   .web-card .nota{margin-top:16px;font-size:12.5px;color:rgba(245,242,234,.45);font-weight:300;line-height:1.5}
+
+  .contacto-box{max-width:720px;margin:0 auto;background:var(--negro);border:1px solid var(--linea);padding:38px 36px}
+  @media(max-width:620px){.contacto-box{padding:24px 18px}}
+  .contacto-box .cl-wrap{display:block;width:100%;max-width:100%;background:none;padding:0;min-height:0}
+  .contacto-box .cl-wrap iframe{width:100%!important;max-width:100%;border:0;display:block;min-height:640px}
+  .contacto-box .form-cita{margin-top:22px;padding-top:20px;border-top:1px solid var(--linea);
+    font-size:13px;color:rgba(245,242,234,.6);font-weight:300;line-height:1.6;text-align:center}
+  .contacto-box .form-cita a{color:var(--arena-claro);text-decoration:underline}
+  .contacto-box .form-cita strong{color:var(--arena-claro);font-weight:500}
+  .cl-fallback{font-size:14px;color:rgba(245,242,234,.7)}
+  .cl-fallback a{color:var(--arena-claro)}
 </style>
 </head>
 <body>
@@ -509,7 +520,7 @@
     <nav class="nav-links">
       <a class="link" href="#webinar">Webinar</a>
       <a class="nav-volver link" href="index.html">← Solera Homes</a>
-      <a class="btn nav-btn" href="#unlock"><span class="t-largo">Solicitar información</span><span class="t-corto">Info</span></a>
+      <a class="btn nav-btn" href="#unlock"><span class="t-largo">Contactar</span><span class="t-corto">Info</span></a>
     </nav>
   </div>
 </header>
@@ -639,58 +650,19 @@
     <div class="head centro rv">
       <span class="kicker">Solicita información</span>
       <h2>Hablemos de <em>tu vivienda</em></h2>
-      <p>Dos preguntas rápidas para preparar la información que encaja contigo.</p>
+      <p>Déjanos tus datos y te enviamos toda la información de A47 Living: viviendas disponibles, superficies, precios y plan de pagos.</p>
     </div>
-
-    <div class="unlock-box rv">
-      <div class="progreso" id="progreso"><i class="on"></i><i></i><i></i></div>
-
-      <div class="paso activo" data-paso="1">
-        <p class="paso-n">Pregunta 1 de 2</p>
-        <h3>¿Cuál es tu principal motivación?</h3>
-        <p class="sub">Nos ayuda a enviarte solo lo que te interesa.</p>
-        <div class="opciones">
-          <button class="opcion" data-campo="motivacion" data-valor="familia" data-perfil="Familia en crecimiento"><span class="marca"></span>Busco una vivienda cómoda que se adapte a las necesidades de mi familia</button>
-          <button class="opcion" data-campo="motivacion" data-valor="primera" data-perfil="Primera vivienda"><span class="marca"></span>Es mi primera vivienda: quiero empezar con algo que tenga sentido y futuro</button>
-          <button class="opcion" data-campo="motivacion" data-valor="inversor" data-perfil="Perfil inversor"><span class="marca"></span>Busco una inversión sólida, con potencial de revalorización</button>
-          <button class="opcion" data-campo="motivacion" data-valor="etapa" data-perfil="Nueva etapa"><span class="marca"></span>Busco algo práctico y bien situado para mi estilo de vida actual</button>
-        </div>
+    <div class="contacto-box rv">
+      <div class="cl-wrap" id="clWrap">
+        <script type="text/javascript" src="https://api.clientify.net/web-marketing/superforms/script/293387.js"></script>
+        <noscript><p class="cl-fallback">Activa JavaScript para ver el formulario, o escríbenos a <a href="mailto:info@solerahomes.es">info@solerahomes.es</a></p></noscript>
       </div>
-
-      <div class="paso" data-paso="2">
-        <p class="paso-n">Pregunta 2 de 2</p>
-        <h3>¿Cómo prefieres decidir?</h3>
-        <p class="sub">Así sabemos cómo acompañarte, sin agobios.</p>
-        <div class="opciones">
-          <button class="opcion" data-campo="estilo" data-valor="directo"><span class="marca"></span>Voy al grano: dime precio, disponibilidad y plazos</button>
-          <button class="opcion" data-campo="estilo" data-valor="analitico"><span class="marca"></span>Necesito entender bien todas las opciones antes de decidir</button>
-          <button class="opcion" data-campo="estilo" data-valor="explorador"><span class="marca"></span>Me gusta explorar posibilidades y ver el proyecto por dentro</button>
-          <button class="opcion" data-campo="estilo" data-valor="prudente"><span class="marca"></span>Prefiero ir con calma y sobre seguro, con todo bien atado</button>
-        </div>
-      </div>
-
-      <div class="paso" data-paso="3">
-        <p class="paso-n">Último paso</p>
-        <h3 id="res-titulo">Ya casi está</h3>
-        <p class="perfil" id="res-perfil">Perfil</p>
-        <p class="sub" id="res-msg"></p>
-        <div class="form-resumen" id="form-resumen"></div>
-        <div class="cl-wrap" id="clWrap">
-          <script type="text/javascript" src="https://api.clientify.net/web-marketing/superforms/script/293387.js"></script>
-          <noscript><p class="cl-fallback">Activa JavaScript para ver el formulario, o escríbenos a info@solerahomes.es</p></noscript>
-        </div>
-        <p class="form-cita">También puedes concertar una <strong>cita presencial o por videollamada</strong> para que estudiemos contigo la opción que mejor encaja.</p>
-      </div>
-
-      <p class="error" id="error"></p>
-
-      <div class="nav-paso" id="nav-paso">
-        <button class="volver" id="btn-volver" style="display:none">← Volver</button>
-        <button class="btn btn-arena" id="btn-siguiente">Continuar</button>
-      </div>
+      <p class="form-cita">También puedes escribirnos por <a href="https://wa.me/34694257799?text=Hola%20%F0%9F%91%8B%0A%0AHe%20visto%20vuestro%20proyecto%20%F0%9F%8F%A1%E2%9C%A8%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20%F0%9F%98%8A" target="_blank" rel="noopener">WhatsApp</a> o concertar una <strong>cita presencial o por videollamada</strong>.</p>
     </div>
   </div>
-</section><footer>
+</section>
+
+<footer>
   <div class="wrap">
     <div class="foot-top">
       <div>
@@ -719,42 +691,7 @@
 </a>
 <script>
 
-/* ============================================================
-   AUTORRELLENO DEL NAVEGADOR EN EL FORMULARIO DE CLIENTIFY
-   Solo funciona si Clientify inyecta el formulario en el DOM.
-   Si lo mete en un iframe, hay que activarlo desde Clientify.
-   ============================================================ */
-function activaAutorrelleno(raiz){
-  if(!raiz) return;
-  const mapa = [
-    [/nombre|first.?name|fname/i, 'given-name'],
-    [/apellid|last.?name|lname|surname/i, 'family-name'],
-    [/mail/i,                     'email'],
-    [/tel|phone|movil|móvil|celular/i, 'tel'],
-    [/empresa|company/i,          'organization'],
-    [/ciudad|city|localidad/i,    'address-level2'],
-    [/provincia|state/i,          'address-level1'],
-    [/postal|cp|zip/i,          'postal-code'],
-    [/direccion|dirección|address|calle/i, 'street-address']
-  ];
-  raiz.querySelectorAll('form').forEach(f=> f.setAttribute('autocomplete','on'));
-  raiz.querySelectorAll('input, textarea').forEach(c=>{
-    if(c.type === 'hidden' || c.type === 'checkbox' || c.type === 'radio') return;
-    const pista = [c.name, c.id, c.placeholder, c.getAttribute('aria-label'),
-                   (c.labels && c.labels[0] ? c.labels[0].textContent : '')].filter(Boolean).join(' ');
-    for(const [re, valor] of mapa){
-      if(re.test(pista)){
-        c.setAttribute('autocomplete', valor);
-        if(valor === 'email' && c.type === 'text') c.type = 'email';
-        if(valor === 'tel' && c.type === 'text') c.type = 'tel';
-        break;
-      }
-    }
-  });
-  if(raiz.querySelector('iframe')){
-    console.info('[Solera] El formulario está en un iframe: el autorrelleno debe activarse desde Clientify.');
-  }
-}
+
 const fmt  = n => (Math.round(n*1000)/1000).toString().replace('.', ',');
 const fmtE = n => { const [e,d] = n.toFixed(2).split('.');
   return e.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',' + d; };
@@ -903,7 +840,7 @@ function crearSelector(rootId, cfg){
   /* al pedir info: guarda la unidad, preselecciona la promoción y baja al cuestionario */
   $('data-cta').addEventListener('click', ()=>{
     if(!actual) return;
-    window.FORM.setUnidad(cfg.nombre + ' · ' + actual.nombre + ' · ' + fmt(actual.czz) + ' m² c/zz.cc. · ' + fmtE(actual.precio) + ' € (sin IVA)', cfg.zona);
+    document.getElementById('unlock').scrollIntoView({behavior:'smooth'});
     document.getElementById('unlock').scrollIntoView({behavior:'smooth'});
   });
 
@@ -954,128 +891,42 @@ function crearSelector(rootId, cfg){
 crearSelector('sel-a47', PROY.a47);
 
 
-/* ============================================================
-   CUESTIONARIO + FORMULARIO CLIENTIFY
-   ============================================================ */
-window.FORM = (function(){
-  const params = new URLSearchParams(location.search);
-  const utm = {};
-  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=> utm[k] = params.get(k) || '');
 
-  const respuestas = {};
-  let unidad = '';
-  let paso = 1;
-  const TOTAL = 3;
-  const pasos = document.querySelectorAll('.paso');
-  const barras = document.querySelectorAll('#progreso i');
-  const btnSig = document.getElementById('btn-siguiente');
-  const btnVol = document.getElementById('btn-volver');
-  const err = document.getElementById('error');
-  const wrap = document.getElementById('clWrap');
-
-  const PERFILES = {
-    familia:{t:'Tenemos algo que encaja contigo', m:'Te enviaremos las tipologías más amplias, con distribución y plazos de entrega, para que lo valoréis en familia con calma.'},
-    primera:{t:'Buena decisión para empezar', m:'Te explicaremos cómo funciona la aportación por fases en cooperativa: es la vía más accesible para entrar en obra nueva.'},
-    inversor:{t:'Hablamos tu idioma', m:'Te prepararemos el detalle de coste de adjudicación frente a valor de mercado de la zona, plazos de obra y financiación.'},
-    etapa:{t:'Práctico y bien situado', m:'Te enviaremos las opciones compactas y de bajo mantenimiento, con todo lo que tienes a un paso.'}
-  };
-  const ETIQ = {
-    motivacion:{familia:'Vivienda familiar', primera:'Primera vivienda', inversor:'Inversión', etapa:'Nueva etapa'},
-    estilo:{directo:'Decisión rápida', analitico:'Analítico', explorador:'Explorador', prudente:'Prudente'}
-  };
-
-  function pinta(){
-    pasos.forEach(p=>p.classList.toggle('activo', +p.dataset.paso === paso));
-    barras.forEach((b,i)=>b.classList.toggle('on', i < paso));
-    btnVol.style.display = paso > 1 ? 'block' : 'none';
-    btnSig.style.display = paso === TOTAL ? 'none' : 'inline-block';
-    err.classList.remove('on');
-    if(paso === TOTAL) preparaFinal();
-  }
-
-  document.querySelectorAll('.opcion').forEach(op=>{
-    op.addEventListener('click', ()=>{
-      const c = op.dataset.campo;
-      document.querySelectorAll('.opcion[data-campo="'+c+'"]').forEach(o=>o.classList.toggle('sel', o===op));
-      respuestas[c] = op.dataset.valor;
-      if(op.dataset.perfil) respuestas.perfil = op.dataset.perfil;
-      setTimeout(()=>{ if(paso < TOTAL){ paso++; pinta(); } }, 260);
-    });
-  });
-
-  btnVol.addEventListener('click', ()=>{ if(paso>1){ paso--; pinta(); } });
-  btnSig.addEventListener('click', ()=>{
-    const campo = ['motivacion','estilo'][paso-1];
-    if(!respuestas[campo]){ err.textContent='Elige una opción para continuar.'; err.classList.add('on'); return; }
-    if(paso < TOTAL){ paso++; pinta(); }
-  });
-
-  function resumen(){
-    const t = [];
-    if(unidad) t.push(unidad);
-    if(respuestas.motivacion) t.push('Motivación: ' + ETIQ.motivacion[respuestas.motivacion]);
-    if(respuestas.estilo) t.push('Perfil: ' + ETIQ.estilo[respuestas.estilo]);
-    const src = [utm.utm_source, utm.utm_campaign, utm.utm_content].filter(Boolean).join(' / ');
-    if(src) t.push('Origen: ' + src);
-    return t.join(' · ');
-  }
-
-  /* traslada la cualificación al campo de comentarios del formulario, si existe */
-  function trasladar(){
-    const texto = resumen();
-    if(!texto || !wrap) return;
-    const campos = wrap.querySelectorAll('textarea, input[type="text"]');
-    for(const c of campos){
-      const p = ((c.name||'')+' '+(c.id||'')+' '+(c.placeholder||'')+' '+(c.getAttribute('aria-label')||'')).toLowerCase();
-      if(/mensaje|coment|observ|consulta|message|notas/.test(p)){
-        if(!c.value){
-          c.value = texto;
-          c.dispatchEvent(new Event('input', {bubbles:true}));
-          c.dispatchEvent(new Event('change', {bubbles:true}));
-        }
+/* autorrelleno del navegador en el formulario de Clientify */
+function activaAutorrelleno(raiz){
+  if(!raiz) return;
+  const mapa = [
+    [/nombre|first.?name|fname/i, 'given-name'],
+    [/apellid|last.?name|lname|surname/i, 'family-name'],
+    [/mail/i, 'email'],
+    [/tel|phone|movil|móvil|celular/i, 'tel'],
+    [/empresa|company/i, 'organization'],
+    [/ciudad|city|localidad/i, 'address-level2'],
+    [/postal|cp\b|zip/i, 'postal-code'],
+    [/direccion|dirección|address|calle/i, 'street-address']
+  ];
+  raiz.querySelectorAll('form').forEach(f=> f.setAttribute('autocomplete','on'));
+  raiz.querySelectorAll('input, textarea').forEach(c=>{
+    if(c.type === 'hidden' || c.type === 'checkbox' || c.type === 'radio') return;
+    const pista = [c.name, c.id, c.placeholder, c.getAttribute('aria-label'),
+                   (c.labels && c.labels[0] ? c.labels[0].textContent : '')].filter(Boolean).join(' ');
+    for(const [re, valor] of mapa){
+      if(re.test(pista)){
+        c.setAttribute('autocomplete', valor);
+        if(valor === 'email' && c.type === 'text') c.type = 'email';
+        if(valor === 'tel' && c.type === 'text') c.type = 'tel';
         break;
       }
     }
-  }
-
-  function actualizaURL(){
-    try{
-      const u = new URL(location.href);
-      if(respuestas.motivacion) u.searchParams.set('perfil', respuestas.motivacion);
-      if(respuestas.estilo) u.searchParams.set('estilo', respuestas.estilo);
-      if(unidad) u.searchParams.set('vivienda', unidad);
-      history.replaceState(null, '', u);
-    }catch(e){}
-  }
-
-  function preparaFinal(){
-    const p = PERFILES[respuestas.motivacion] || PERFILES.inversor;
-    document.getElementById('res-titulo').textContent = p.t;
-    document.getElementById('res-perfil').textContent = respuestas.perfil || 'Perfil registrado';
-    document.getElementById('res-msg').textContent = p.m + ' Déjanos tus datos y te contactamos.';
-    const caja = document.getElementById('form-resumen');
-    const txt = resumen();
-    if(txt){ caja.innerHTML = '<b>Lo que nos has contado</b>' + txt; caja.classList.add('on'); }
-    actualizaURL();
-    let n = 0;
-    const t = setInterval(()=>{
-      trasladar();
-      activaAutorrelleno(wrap);
-      if(++n > 14) clearInterval(t);
-    }, 500);
-  }
-
-  pinta();
-
-  return {
-    setUnidad(texto){
-      unidad = texto;
-      document.getElementById('unlock').scrollIntoView({behavior:'smooth'});
-    }
-  };
+  });
+}
+(function(){
+  const w = document.getElementById('clWrap');
+  let n = 0;
+  const t = setInterval(()=>{ activaAutorrelleno(w); if(++n > 16) clearInterval(t); }, 500);
 })();
 
-/* ---- comunes ---- */
+/* nav sólido al hacer scroll + animaciones de entrada */
 const nav = document.getElementById('nav');
 addEventListener('scroll', ()=> nav.classList.toggle('solid', scrollY > 60));
 const obs = new IntersectionObserver(es=>{
