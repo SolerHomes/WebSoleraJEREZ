@@ -184,6 +184,163 @@ footer{border-top:1px solid var(--linea);padding:50px 0 34px;font-size:14px;font
 
 .hero-in{padding-left:24px;padding-right:24px}
 @media(max-width:400px){.hero-in{padding-left:18px;padding-right:18px}}
+
+/* ═══════════════ ANIMACIONES ═══════════════ */
+
+/* barra de progreso de lectura */
+#progreso-scroll{position:fixed;top:0;left:0;height:2px;width:0;z-index:100;
+  background:linear-gradient(90deg,var(--arena),var(--arena-claro));
+  transition:width .1s linear;pointer-events:none}
+
+/* nav: se compacta al bajar */
+.nav{transition:padding .35s ease, background .35s ease, box-shadow .35s ease}
+.nav.mini{padding:9px 0;box-shadow:0 6px 30px rgba(0,0,0,.45)}
+.nav.mini .nav-logo{height:28px;transition:height .35s ease}
+.nav-logo{transition:height .35s ease}
+
+/* ── entrada por scroll ── */
+[data-anim]{opacity:0;will-change:opacity,transform}
+[data-anim="up"]{transform:translateY(38px)}
+[data-anim="left"]{transform:translateX(-46px)}
+[data-anim="right"]{transform:translateX(46px)}
+[data-anim="zoom"]{transform:scale(.94)}
+[data-anim="blur"]{filter:blur(9px);transform:translateY(20px)}
+[data-anim].visto{opacity:1;transform:none;filter:none;
+  transition:opacity .85s cubic-bezier(.22,.61,.36,1),
+             transform .85s cubic-bezier(.22,.61,.36,1),
+             filter .85s ease}
+
+/* ── hero: entrada escalonada al cargar ── */
+.hero-in > *{opacity:0;transform:translateY(30px);
+  animation:heroIn 1s cubic-bezier(.22,.61,.36,1) forwards}
+.hero-in > *:nth-child(1){animation-delay:.15s}
+.hero-in > *:nth-child(2){animation-delay:.3s}
+.hero-in > *:nth-child(3){animation-delay:.45s}
+.hero-in > *:nth-child(4){animation-delay:.6s}
+@keyframes heroIn{to{opacity:1;transform:none}}
+
+/* hero: zoom lento continuo + parallax */
+.hero-bg{animation:heroZoom 20s ease-out forwards;transform-origin:center 60%}
+@keyframes heroZoom{from{transform:scale(1.14)}to{transform:scale(1.02)}}
+.hero-bg.px{animation:none}
+
+/* indicador de scroll en el hero */
+.scroll-ind{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;
+  width:22px;height:36px;border:1px solid rgba(245,242,234,.45);border-radius:12px;
+  opacity:0;animation:heroIn .8s ease 1.2s forwards}
+.scroll-ind::after{content:"";position:absolute;top:7px;left:50%;margin-left:-2px;
+  width:4px;height:7px;border-radius:2px;background:var(--arena-claro);
+  animation:scrollPunto 1.9s ease-in-out infinite}
+@keyframes scrollPunto{0%{transform:translateY(0);opacity:1}
+  70%{transform:translateY(13px);opacity:0}100%{transform:translateY(0);opacity:0}}
+@media(max-width:760px){.scroll-ind{display:none}}
+
+/* ── cifras: contador + línea que crece ── */
+.cifra{position:relative;overflow:hidden}
+.cifra::after{content:"";position:absolute;left:0;bottom:-1px;width:0;height:2px;
+  background:var(--arena);transition:width .9s cubic-bezier(.22,.61,.36,1) .25s}
+.cifra.visto::after{width:100%}
+.cifra b{transition:color .4s ease}
+.cifra:hover b{color:#fff}
+
+/* ── subrayado animado en titulares ── */
+h2 em{position:relative;display:inline-block}
+h2 em::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;
+  background:var(--arena);transition:width 1s cubic-bezier(.22,.61,.36,1) .5s}
+.visto h2 em::after, h2.visto em::after{width:100%}
+
+/* ── lista de puntos: aparece escalonada ── */
+.puntos li{opacity:0;transform:translateX(-22px);
+  transition:opacity .6s ease, transform .6s cubic-bezier(.22,.61,.36,1)}
+.puntos li.visto{opacity:1;transform:none}
+.puntos li .n{transition:color .3s ease, transform .3s ease}
+.puntos li:hover .n{color:var(--arena-claro);transform:scale(1.25)}
+.puntos li{transition:border-color .3s ease}
+.puntos li:hover{border-bottom-color:rgba(194,169,130,.5)}
+
+/* ── imágenes: zoom suave al pasar ── */
+.dos-img{overflow:hidden;position:relative}
+.dos-img::after{content:"";position:absolute;inset:0;background:inherit;
+  background-size:cover;background-position:center;transition:transform 1.2s cubic-bezier(.22,.61,.36,1)}
+.dos-img:hover{transform:none}
+
+/* ── tarjetas de promoción ── */
+.promo{transition:transform .5s cubic-bezier(.22,.61,.36,1), border-color .4s ease,
+  box-shadow .5s ease}
+.promo:hover{transform:translateY(-6px);box-shadow:0 22px 60px rgba(0,0,0,.5)}
+.promo-bg{transition:transform 1.1s cubic-bezier(.22,.61,.36,1)}
+.promo:hover .promo-bg{transform:scale(1.07)}
+.promo-link{position:relative;transition:color .3s ease}
+.promo-link::after{content:" →";opacity:0;margin-left:0;
+  transition:opacity .35s ease, margin-left .35s ease;display:inline-block}
+.promo:hover .promo-link{color:var(--arena-claro)}
+.promo:hover .promo-link::after{opacity:1;margin-left:6px}
+.promo-desde b{transition:transform .4s ease}
+.promo:hover .promo-desde b{transform:translateX(4px)}
+
+/* ── galería ── */
+.gal div{overflow:hidden;transition:transform .5s cubic-bezier(.22,.61,.36,1),
+  box-shadow .5s ease, border-color .4s ease}
+.gal div:hover{transform:scale(1.03);border-color:rgba(194,169,130,.55);
+  box-shadow:0 16px 40px rgba(0,0,0,.4);z-index:2;position:relative}
+
+/* ── tabla: filas escalonadas + resalte ── */
+tbody tr{opacity:0;transform:translateY(14px);
+  transition:opacity .5s ease, transform .5s cubic-bezier(.22,.61,.36,1), background .3s ease}
+tbody tr.visto{opacity:1;transform:none}
+tbody tr:hover td{background:rgba(194,169,130,.09)}
+tbody tr:hover td.pre{color:#fff}
+td.pre{transition:color .3s ease}
+
+/* ── cita ── */
+.cita p{position:relative}
+.cita::before{content:"";position:absolute;left:50%;top:34px;transform:translateX(-50%);
+  width:0;height:1px;background:var(--arena);transition:width 1s ease .3s}
+.cita.visto::before{width:56px}
+
+/* ── botones ── */
+.btn{position:relative;overflow:hidden}
+.btn::before{content:"";position:absolute;inset:0;background:currentColor;opacity:0;
+  transform:translateY(100%);transition:transform .4s cubic-bezier(.22,.61,.36,1), opacity .4s ease}
+.btn:hover::before{opacity:.07;transform:translateY(0)}
+.btn-arena{transition:background .25s ease, transform .25s ease, box-shadow .3s ease}
+.btn-arena:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(194,169,130,.3)}
+.btn-linea:hover{transform:translateY(-2px)}
+.nav-btn{transition:background .25s ease, transform .25s ease}
+.nav-btn:hover{transform:translateY(-1px)}
+
+/* ── enlaces del bloque de contacto ── */
+.otras a{transition:all .3s cubic-bezier(.22,.61,.36,1)}
+.otras a:hover{transform:translateY(-3px);background:rgba(194,169,130,.07)}
+
+/* ── whatsapp: latido suave ── */
+.wa{transition:transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease}
+.wa:hover{transform:scale(1.12) rotate(-4deg);box-shadow:0 10px 34px rgba(37,211,102,.45)}
+.wa::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;
+  opacity:.55;animation:pulso 2.6s ease-out infinite;z-index:-1}
+@keyframes pulso{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.55);opacity:0}
+  100%{transform:scale(1.55);opacity:0}}
+
+/* ── logos del pie ── */
+.rol img{transition:opacity .3s ease, transform .3s ease;opacity:.75}
+.rol img:hover{opacity:1;transform:scale(1.05)}
+
+/* respeta la preferencia del sistema */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  [data-anim],.puntos li,tbody tr,.hero-in > *{opacity:1!important;transform:none!important;filter:none!important}
+  .cifra::after{width:100%}
+  h2 em::after{width:100%}
+}
+
+
+/* el desplazamiento lateral de las animaciones no debe generar scroll horizontal */
+body{overflow-x:hidden}
+section{overflow-x:clip}
+@media(max-width:900px){
+  [data-anim="left"]{transform:translateY(30px)}
+  [data-anim="right"]{transform:translateY(30px)}
+}
 </style>
 </head>
 <body>
@@ -345,6 +502,113 @@ footer{border-top:1px solid var(--linea);padding:50px 0 34px;font-size:14px;font
   }
   let n = 0;
   const t = setInterval(()=>{ activa(); if(++n > 16) clearInterval(t); }, 500);
+})();
+
+/* ═══════════════ ANIMACIONES ═══════════════ */
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- barra de progreso de lectura --- */
+  const barra = document.createElement('div');
+  barra.id = 'progreso-scroll';
+  document.body.appendChild(barra);
+
+  /* --- indicador de scroll en el hero --- */
+  const hero = document.querySelector('.hero');
+  if(hero && !reduce){
+    const ind = document.createElement('span');
+    ind.className = 'scroll-ind';
+    hero.appendChild(ind);
+  }
+
+  /* --- asignar animaciones automáticamente --- */
+  const asigna = (sel, tipo) => document.querySelectorAll(sel).forEach(el=>{
+    if(!el.closest('.hero')) el.setAttribute('data-anim', tipo);
+  });
+  asigna('.head', 'up');
+  asigna('.txt', 'left');
+  asigna('.dos-img', 'right');
+  asigna('.promo', 'up');
+  asigna('.gal div', 'zoom');
+  asigna('.tabla-wrap', 'up');
+  asigna('.tabla-nota', 'up');
+  asigna('.cifra', 'up');
+  asigna('.cita', 'blur');
+  asigna('.form-box', 'up');
+  asigna('.otras', 'up');
+  asigna('section > .wrap > h2, .txt h2', 'up');
+
+  /* --- contador numérico --- */
+  function cuenta(el){
+    const txt = el.textContent.trim();
+    const m = txt.match(/^([^\d]*)([\d.,]+)([^\d]*)$/);
+    if(!m) return;
+    const bruto = m[2];
+    /* solo números simples: 48, 100, 3.000, 6 */
+    if(!/^\d{1,3}(\.\d{3})*$/.test(bruto) && !/^\d+$/.test(bruto)) return;
+    const destino = parseInt(bruto.replace(/\./g,''), 10);
+    if(isNaN(destino) || destino === 0) return;
+    const dur = 1100, ini = performance.now();
+    const sep = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    function paso(t){
+      const p = Math.min((t - ini) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3);          /* easing suave al final */
+      el.textContent = m[1] + sep(Math.round(destino * e)) + m[3];
+      if(p < 1) requestAnimationFrame(paso);
+    }
+    requestAnimationFrame(paso);
+  }
+
+  /* --- observador único --- */
+  const obs = new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el = e.target;
+      el.classList.add('visto');
+
+      /* elementos hijos escalonados */
+      if(el.classList.contains('cifra')){
+        const b = el.querySelector('b');
+        if(b && !reduce) cuenta(b);
+      }
+      if(el.tagName === 'UL' && el.classList.contains('puntos')){
+        [...el.children].forEach((li,i)=> setTimeout(()=>li.classList.add('visto'), i*110));
+      }
+      if(el.classList.contains('tabla-wrap')){
+        el.querySelectorAll('tbody tr').forEach((tr,i)=> setTimeout(()=>tr.classList.add('visto'), 200 + i*90));
+      }
+      obs.unobserve(el);
+    });
+  }, {threshold:.14, rootMargin:'0px 0px -40px 0px'});
+
+  /* retardo escalonado entre hermanos del mismo grupo */
+  document.querySelectorAll('.cifras-grid, .promos, .gal').forEach(grupo=>{
+    [...grupo.children].forEach((h,i)=> h.style.transitionDelay = (i*95)+'ms');
+  });
+
+  document.querySelectorAll('[data-anim], .puntos, .tabla-wrap').forEach(el=>obs.observe(el));
+
+  /* --- scroll: barra, nav y parallax del hero --- */
+  const nav = document.querySelector('.nav');
+  const bg = document.querySelector('.hero-bg');
+  let tick = false;
+  function onScroll(){
+    const y = scrollY;
+    const alto = document.documentElement.scrollHeight - innerHeight;
+    barra.style.width = (alto > 0 ? (y/alto)*100 : 0) + '%';
+    if(nav) nav.classList.toggle('mini', y > 90);
+    if(bg && !reduce && y < innerHeight){
+      bg.style.transform = 'translateY(' + (y*0.28) + 'px) scale(1.06)';
+      bg.classList.add('px');
+    }
+    tick = false;
+  }
+  addEventListener('scroll', ()=>{
+    if(!tick){ requestAnimationFrame(onScroll); tick = true; }
+  }, {passive:true});
+  /* el parallax solo empieza cuando termina el zoom de entrada */
+  setTimeout(()=>{ if(bg) bg.classList.add('px'); }, 2100);
+  onScroll();
 })();
 </script>
 </body>
